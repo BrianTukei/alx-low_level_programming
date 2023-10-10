@@ -1,35 +1,19 @@
-#include <stdlib.h>
-#include <time.h>
-#include <stdio.h>
+#include <stdio.h>
 
-  /**
-  * main - last digits of numbers
-  *
-  * Return: Always 0 (Success)
-  */
-
-int main(void)
+/**
+ * main - prints the alphabet.
+ * Return: Always 0 (success)
+ */
+int main(0)
 {
-	int n, last_digit;
-	srand(time(0));
-	n = rand() - RAND_MAX / 2;
-	last_digit = n % 10;
-	if (last_digit > 5)
+	char alp[26] = "abcdefghijklmnopqrstuvwxy";
+	int i;
+
+	for (i = 0; i < 26; i++)
 	{
-
-		printf("Last digit of %d is %d and is greater than 5\n", n, last_digit);
+		putchar(alp[i]);
 	}
-	else if (last_digit == 0)
-
-	{
-		printf("Last digit of %d is %d and is 0\n", n, last_digit);
-	}
-	else if (last_digit < 6 && last_digit != 0)
-	{
-
-		printf("Last digit of %d is %d and is less than 6 and not 0\n", n, last_digit);
-	}
-
+	putchar('\n');
 	return (0);
 }
 
