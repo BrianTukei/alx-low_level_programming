@@ -8,7 +8,7 @@
 
 int main(void)
 {
-	char alp[26] = "Last digit of 98 is 8 and is greater than 5";
+	char alp[26] = "abcdefghijklmnopqrstuvwxyz";
 	int i;
 
 	for (i = 0; i < 26; i++)
