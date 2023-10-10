@@ -2,8 +2,10 @@
 
 /**
  * main - prints the alphabet.
+ *
  * Return: Always 0 (success)
  */
+
 int main(0)
 {
 	char alp[26] = "abcdefghijklmnopqrstuvwxy";
