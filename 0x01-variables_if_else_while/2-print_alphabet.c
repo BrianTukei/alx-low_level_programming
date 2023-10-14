@@ -5,7 +5,6 @@
  *
  * Return: Always 0 (success)
  */
-
 int main(void)
 {
 	char alp[26] = "abcdefghijklmnopqrstuvwxyz";
@@ -18,4 +17,3 @@ int main(void)
 	putchar('\n');
 	return (0);
 }
-
