@@ -2,20 +2,19 @@
 
 /**
  * string_toupper - changes all lowercase to uppercase letters
- * @n: The string to be changed
- * Return: n
+ * @str: The string to be changed
+ * Return: Apointer to be changed
  *
  */
-char *string_toupper(char *n)
+char *string_toupper(char *str)
 {
-	int i;
+	int index = 0;
 
-	i = 0;
-	while (n[i] != '\0')
+	while (str[index])
 	{
-		if (n[i] >= '0' && n[i] <= 'z')
-			n[i] = n[i] - 32;
-		i++;
+		if (str[index] >= 'a' && str[index] <= 'z')
+			str[index] -= 32;
+		index++;
 	}
-	return (n);
+	return (str);
 }
