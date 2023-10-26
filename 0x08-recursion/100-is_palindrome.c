@@ -16,17 +16,17 @@ int _strlen_recursion(char *s)
 /**
  * compare_string - compare each character of the string
  * @s: string
- * @n1: smallest iterator
- * @n2: biggest iterator
- * Return : compare each character of the string
+ * @left: smallet iterator
+ * @right: largest iterator
+ * Return: int
  */
-int compare_string(char *s, int n1, int n2)
+int compare_string(char *s, int left, int right)
 {
-	if (*(s + n1) == *(s + n2))
+	if (*(s + left) == *(s + right))
 	{
-		if (n1 == n2 || n1 == n2 + 1)
+		if (left == right || left == right + 1)
 			return (1);
-		return (0 + compare_string(s, n1 + 1, n2 - 1));
+		return (0 + compare_string(s, left + 1, right - 1));
 	}
 	return (0);
 }
