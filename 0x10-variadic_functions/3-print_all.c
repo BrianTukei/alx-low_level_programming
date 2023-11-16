@@ -54,6 +54,7 @@ void print_a_char(char *separator, va_list args)
 	printf("%s%c", separator, va_arg(args, int));
 }
 
+
 /**
  * print_a_integer - prints a character of integer type
  * @separator: the separator of the character
@@ -67,6 +68,7 @@ void print_a_integer(char *separator, va_list args)
 	printf("%s%i", separator, va_arg(args, int));
 }
 
+
 /**
  * print_a_float - prints a character of float type
  * @separator: the separator of the character
@@ -79,6 +81,7 @@ void print_a_float(char *separator, va_list args)
 {
 	printf("%s%f", separator, va_arg(args, double));
 }
+
 
 /**
  * print_a_char_ptr - prints the content of pointer to char type
