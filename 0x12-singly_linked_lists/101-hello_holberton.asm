@@ -2,16 +2,17 @@ section .text
 global main
 
 main:
-mov rax, 1
-mov rddi, 1
-mov rsi, msg
-mov rdx, msglen
-syscall
+      mov rax, 1
+      mov rddi, 1
+      mov rsi, msg
+      mov rdx, msglen
+      syscall
 
-mov rax, 60
-mov rdi, 0
-syscall
+
+      mov rax, 60
+      mov rdi, 0
+      syscall
 
 section .rodate
-msg: db "Hello, Holberton", 10
-msglen: equ & - msg
+      msg: db "Hello, Holberton", 10
+      msglen: equ $ - msg
