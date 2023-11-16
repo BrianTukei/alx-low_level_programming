@@ -29,6 +29,7 @@ void print_all(const char * const format, ...)
 		while (j < 4)
 		{
 			if (format[i] == *form_types[j].identifier)
+
 			{
 				form_types[j].f(separator, args);
 				separator = ",";
@@ -51,6 +52,7 @@ void print_all(const char * const format, ...)
 
 void print_a_char(char *separator, va_list args)
 {
+
 	printf("%s%c", separator, va_arg(args, int));
 }
 
@@ -65,6 +67,7 @@ void print_a_char(char *separator, va_list args)
 
 void print_a_integer(char *separator, va_list args)
 {
+
 	printf("%s%i", separator, va_arg(args, int));
 }
 
@@ -79,6 +82,7 @@ void print_a_integer(char *separator, va_list args)
 
 void print_a_float(char *separator, va_list args)
 {
+
 	printf("%s%f", separator, va_arg(args, double));
 }
 
@@ -98,6 +102,7 @@ void print_a_char_ptr(char *separator, va_list args)
 	if (arg == NULL)
 	{
 		printf("%s%s", separator, "(nil)");
+
 		return;
 	}
 	printf("%s%s", separator, arg);
