@@ -48,6 +48,7 @@ void print_all(const char * const format, ...)
  *
  * Return: Nonthing
  */
+
 void print_a_char(char *separator, va_list args)
 {
 	printf("%s%c", separator, va_arg(args, int));
@@ -60,6 +61,7 @@ void print_a_char(char *separator, va_list args)
  *
  * Return: Nonthing
  */
+
 void print_a_integer(char *separator, va_list args)
 {
 	printf("%s%i", separator, va_arg(args, int));
@@ -72,6 +74,7 @@ void print_a_integer(char *separator, va_list args)
  *
  * Return: Nothing
  */
+
 void print_a_float(char *separator, va_list args)
 {
 	printf("%s%f", separator, va_arg(args, double));
@@ -84,6 +87,7 @@ void print_a_float(char *separator, va_list args)
  *
  * Return: Nothing
  */
+
 void print_a_char_ptr(char *separator, va_list args)
 {
 	char *arg = va_arg(args, char *);
