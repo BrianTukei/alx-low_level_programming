@@ -8,9 +8,9 @@ def island_perimeter(grid):
     The grid represents water by 0 and land by 1.
 
     Args:
-    grid (list): A list of list of integers representing an island.
+        grid (list): A list of list of integers representing an island.
     Returns:
-    The perimeter of the island defined in grid.
+        The perimeter of the island defined in grid.
     """
     width = len(grid[0])
     height = len(grid)
@@ -25,5 +25,6 @@ def island_perimeter(grid):
 
                     edges += 1
                     if (i > 0 and grid[i - 1][j] == 1):
+
                         edges += 1
                         return size * 4 - edges * 2
