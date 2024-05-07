@@ -1,109 +1,67 @@
-#include "variadic_functions.h"
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdarg.h>
 
 /**
- * print_all - prints anything
- * @format: the conversion specifier to print
+ * print_all - function that prints anything
  *
- * Return: Nothing
+ * Description: function that prints anything
+ * Not allowed to use for, goto, ternary operator, else, do ... while
+ * Can use a maximum of
+ * 2 while loops
+ * 2 if
+ * Can declare a maximum of 9 variables
+ * Allowed to use printf
+ *
+ * @format: format is a list of types of arguments passed to the function
+ * c = char
+ * i = integer
+ * f = float
+ * s = char * (if the string is NULL, print (nil) instead
+ * any other char should be ignored
+ *
+ * Return: nothing
  */
+
 void print_all(const char * const format, ...)
 {
-	va_list args;
-	f_dt form_types[] = {
-		{"c", print_a_char },
-		{"i", print_a_integer },
-		{"f", print_a_float },
-		{"s", print_a_char_ptr }
-	};
-	unsigned int i = 0;
-	unsigned int j = 0;
-	char *separator = "";
+	va_list all_parameters;
+	unsigned int index_format;
+	char character_placeholder;
+	int integer_placeholder;
+	float float_placeholder;
+	char *string_placeholder;
 
-	va_start(args, format);
-
-	while (format != NULL && format[i])
-	{
-		j = 0;
-		while (j < 4)
+	va_start(all_parameters, format);
+	index_format = 0;
+	if (format != 0)
+		while (format[index_format])
 		{
-			if (format[i] == *form_types[j].identifier)
-
+			switch (format[index_format])
 			{
-				form_types[j].f(separator, args);
-				separator = ",";
+				case 'c':
+					character_placeholder = (char) va_arg(all_parameters, int);
+					printf("%c", character_placeholder);
+					break;
+				case 'i':
+					integer_placeholder = va_arg(all_parameters, int);
+					printf("%d", integer_placeholder);
+					break;
+				case 'f':
+					float_placeholder = (float) va_arg(all_parameters, double);
+					printf("%f", float_placeholder);
+					break;
+				case 's':
+					string_placeholder = va_arg(all_parameters, char *);
+					printf("%s", string_placeholder ? string_placeholder : "(nil)");
+					break;
+				default:
+					index_format++;
+					continue;
 			}
-			j++;
+			if (format[index_format + 1] != '\0' && format[index_format] != '\0')
+				printf(", ");
+			index_format++;
 		}
-		i++;
-	}
-	va_end(args);
+	va_end(all_parameters);
 	printf("\n");
-}
-
-/**
- * print_a_char - prints a character of char type
- * @separator: the separator of the character
- * @args: Alist of variadic arguments
- *
- * Return: Nonthing
- */
-
-void print_a_char(char *separator, va_list args)
-{
-
-	printf("%s%c", separator, va_arg(args, int));
-}
-
-
-/**
- * print_a_integer - prints a character of integer type
- * @separator: the separator of the character
- * @args: A list of variadic arguments
- *
- * Return: Nonthing
- */
-
-void print_a_integer(char *separator, va_list args)
-{
-
-	printf("%s%i", separator, va_arg(args, int));
-}
-
-
-/**
- * print_a_float - prints a character of float type
- * @separator: the separator of the character
- * @args: a list of variadic arguments
- *
- * Return: Nothing
- */
-
-void print_a_float(char *separator, va_list args)
-{
-
-	printf("%s%f", separator, va_arg(args, double));
-}
-
-
-/**
- * print_a_char_ptr - prints the content of pointer to char type
- * @separator: the separator of the character
- * @args: a list of variadic arguments
- *
- * Return: Nothing
- */
-
-void print_a_char_ptr(char *separator, va_list args)
-{
-	char *arg = va_arg(args, char *);
-
-	if (arg == NULL)
-	{
-		printf("%s%s", separator, "(nil)");
-
-		return;
-	}
-	printf("%s%s", separator, arg);
 }
